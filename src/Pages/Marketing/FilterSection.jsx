@@ -4,6 +4,8 @@ import MarketTable from "./MarketTable";
 import CryptoMarketTable from "./CryptoMarketTable";
 import ForexMarketTable from "./ForexMarketTable";
 import IndicesTable from "./IndicesTable";
+import StocksTable from "./StocksTable";
+import SyntheticIndicesTable from "./SyntheticIndicesTable";
 
 const FilterSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("Trending"); // Default to "Trending"
@@ -16,7 +18,7 @@ const FilterSection = () => {
     <div className="container mx-auto p-4">
       {/* Category Buttons */}
       <div className="flex space-x-4 mb-6">
-        {['Trending', 'Commodities', 'Crypto', 'Forex', 'Indices', 'Stocks'].map((category) => (
+        {['Trending', 'Commodities', 'Crypto', 'Forex', 'Indices', 'Stocks', 'Synthetic Indices'].map((category) => (
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}
@@ -37,6 +39,8 @@ const FilterSection = () => {
       {selectedCategory === "Crypto" && <CryptoMarketTable />}
       {selectedCategory === "Forex" && <ForexMarketTable />}
       {selectedCategory === "Indices" && <IndicesTable />}
+      {selectedCategory === "Stocks" && <StocksTable />}
+      {selectedCategory === "Synthetic Indices" && <SyntheticIndicesTable />}
     </div>
   );
 };
