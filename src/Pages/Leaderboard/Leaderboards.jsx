@@ -1346,7 +1346,7 @@ const Leaderboards = () => {
     //     </table>
     //   </div>
     // </div>
-    <div className="p-4 sm:p-6 bg-white rounded-lg shadow-md w-full overflow-x-auto">
+    <div className="my-10 p-4 sm:p-6 bg-white rounded-lg shadow-md w-full overflow-x-auto">
       {/* Filter bar */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4 border-b pb-4">
         <div className="flex flex-wrap items-center gap-3">
@@ -1425,7 +1425,7 @@ const Leaderboards = () => {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="min-w-full text-sm border-collapse">
+        <table className="min-w-full text-sm border-collapse whitespace-nowrap">
           <thead>
             <tr className="text-gray-600 border-b">
               <th className="text-left py-2 px-3">#</th>

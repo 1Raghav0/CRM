@@ -10,6 +10,9 @@ import DepositBonus from "./Components/DepositBonus";
 import MoneyDashboard from "./Components/MoneyDashboard";
 import LeaderHubDashboard from "./Components/LeaderHubDashboard";
 import NomoGPTLayout from "./Components/NomoGPTLayout";
+import NomoAiIndex from "./CRM/NomoAiIndex";
+import DepositMethods from "./CRM/DepositMethods";
+import Portfolio from "./Components/Portfolio";
 
 const App = () => {
   return (
@@ -17,8 +20,11 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/copy-trading/nomo-ai-index" element={<NomoAiIndex />} />
+        <Route path="/money/deposit" element={<DepositMethods />} />
         <Route path="/money/50-deposit-bonus" element={<DepositBonus />} />
         <Route path="/money" element={<MoneyDashboard />} />
+        <Route path="/portfolio/open" element={<Portfolio />} />
         <Route path="/trading/marketing" element={<Marketing />} />
         <Route path="/trading/platforms" element={<Platforms />} />
         <Route path="/copy-trading/leaderboard" element={<LeaderBoard />} />

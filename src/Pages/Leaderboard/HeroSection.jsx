@@ -80,21 +80,6 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA box */}
-      {/* <div className="flex items-center justify-center px-4 md:px-8 lg:px-14">
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-none p-6 flex flex-col sm:flex-row justify-between items-center w-full shadow-lg">
-  <div className="text-center sm:text-left mb-4 sm:mb-0">
-    <p className="font-semibold text-lg">Find perfect leaders</p>
-    <p className="text-sm text-gray-200">Trading on autopilot</p>
-  </div>
-  <button className="bg-lime-500 text-black font-semibold px-5 py-2 rounded-md hover:bg-lime-400 transition">
-    Start now
-  </button>
-</div>
-      </div> */}
-      
-
     </>
   );
 };

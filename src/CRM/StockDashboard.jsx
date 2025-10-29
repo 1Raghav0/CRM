@@ -1,4 +1,5 @@
 import React from "react";
+import InterestedSection from "../Components/InterestedSection";
 
 const StockDashboard = () => {
   // Data for Top Gainers and Losers
@@ -19,6 +20,7 @@ const StockDashboard = () => {
   ];
 
   return (
+    <>
     <div className="container mx-auto p-4 space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
@@ -71,6 +73,9 @@ const StockDashboard = () => {
         </div>
       </div>
     </div>
+    <InterestedSection />
+    </>
+    
   );
 };
 

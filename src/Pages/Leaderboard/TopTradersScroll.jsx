@@ -172,7 +172,7 @@ const activeTraders = [
 ];
 
 const Section = ({ title, subtitle, traders }) => (
-  <div className="mb-12">
+  <div className="mb-12 p-8">
     {/* Header */}
     <div className="flex justify-between items-center mb-4">
       <div>

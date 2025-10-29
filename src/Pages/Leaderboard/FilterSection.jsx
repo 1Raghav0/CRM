@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import TopTradersScroll from "./TopTradersScroll";
 import Leaderboards from "./Leaderboards";
 import NomoAiIndex from "./NomoAiIndex";
 const FilterSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Trending traders"); // Default to "Trending"
+  const [selectedCategory, setSelectedCategory] = useState("All traders"); // Default to "Trending"
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category); // Update the selected category when a button is clicked
   };
+
+  const texts = [
+    "Trading on autopilot",
+    "Smart investing made easy",
+    "Grow your portfolio effortlessly",
+    "Copy expert traders instantly",
+    "Trade with confidence",
+  ];
 
   const trades = [
   "Wall-Street-Latino sell USDCAD",
@@ -22,8 +30,23 @@ const FilterSection = () => {
   "IgnacioFernandez buy EURUSD",
 ];
 
+const [currentText, setCurrentText] = useState(texts[0]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Pick a random text different from the current one
+      let nextText;
+      do {
+        nextText = texts[Math.floor(Math.random() * texts.length)];
+      } while (nextText === currentText);
+      setCurrentText(nextText);
+    }, 2000); // every 2 seconds
+
+    return () => clearInterval(interval); // cleanup
+  }, [currentText]);
+  
   return (
-    <div className="container mx-1 md:mx-8 lg:mx-16 p-4">
+    <div className="container px-4 md:px-8 lg:px-16">
       {/* Category Buttons */}
       <div className="flex space-x-4 mb-6">
         {['Trending traders', 'All traders', 'nomo AI'].map((category) => (
@@ -53,6 +76,20 @@ const FilterSection = () => {
           ))}
         </div>
       </div>
+
+      <div className="flex items-center justify-center px-4 md:px-8 lg:px-14">
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 flex flex-col sm:flex-row justify-between items-center w-full shadow-lg rounded-2xl">
+        <div className="text-center sm:text-left mb-4 sm:mb-0">
+          <p className="font-semibold text-lg">Find perfect leaders</p>
+          <p className="text-sm text-gray-200 transition-all duration-500">
+            {currentText}
+          </p>
+        </div>
+        <button className="bg-lime-500 text-white font-semibold px-5 py-2 rounded-md hover:bg-lime-400 transition">
+          Start now
+        </button>
+      </div>
+    </div>
 
       {/* Conditionally Render the Content Based on Selected Category */}
       {selectedCategory === "Trending traders" && <TopTradersScroll />}
