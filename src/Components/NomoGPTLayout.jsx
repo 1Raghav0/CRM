@@ -7,7 +7,7 @@ const NomoGPTLayout = () => {
       <header className="flex flex-col md:flex-row items-center justify-between bg-[#cde2ff] rounded-xl p-4 md:p-6 space-y-4 md:space-y-0 md:space-x-6">
         <div className="flex items-center space-x-4">
           <img
-            src="/path-to-your-logo.png"
+            src="/nomo-gpt-mascot.webp"
             alt="nomoGPT logo"
             className="w-12 h-12"
           />
@@ -47,11 +47,11 @@ const NomoGPTLayout = () => {
         </aside>
 
         {/* Right panel */}
-        <section className="flex-1 bg-white rounded-xl p-6 shadow-sm flex flex-col items-center">
+        <section className="flex-1 bg-white rounded-xl p-6 shadow-sm flex flex-col items-center justify-center gap-y-4">
           <img
-            src="/path-to-your-ai-illustration.png"
+            src="/empty-chat-plug.webp"
             alt="nomoGPT mascot"
-            className="w-48 h-48 mb-4"
+            className="w-52 h-52 mb-4"
           />
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center">
             Welcome to nomoGPT! Ask me anything!

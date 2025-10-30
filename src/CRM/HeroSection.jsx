@@ -57,7 +57,7 @@ const HeroSection = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="bg-blue-50 rounded-xl p-5 flex flex-col justify-between hover:shadow-md transition">
+        <div className="bg-blue-100 rounded-xl p-5 flex flex-col justify-between hover:shadow-md transition">
           <img src="50-percent-bonus.webp" alt="" className="h-10 w-10"/>
           <div>
             <h3 className="text-blue-700 font-semibold text-lg">
@@ -67,7 +67,7 @@ const HeroSection = () => {
               Participate in our limited promotion
             </p>
           </div>
-          <div className="mt-4 flex space-x-2">
+          <div className="mt-4 flex flex-col gap-y-3 lg:flex-row space-x-3">
             <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg"
             onClick={goToDeposit}>
               Deposit +

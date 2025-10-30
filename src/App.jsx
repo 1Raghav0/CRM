@@ -13,6 +13,10 @@ import NomoGPTLayout from "./Components/NomoGPTLayout";
 import NomoAiIndex from "./CRM/NomoAiIndex";
 import DepositMethods from "./CRM/DepositMethods";
 import Portfolio from "./Components/Portfolio";
+import IngridMartingaleCard from "./CRM/IngridMartingaleCard";
+import NatyProfileCard from "./CRM/NatyProfileCard";
+import StratosProfile from "./CRM/StratosProfile";
+import ScalpingCard from "./CRM/ScalpingCard";
 
 const App = () => {
   return (
@@ -30,6 +34,10 @@ const App = () => {
         <Route path="/copy-trading/leaderboard" element={<LeaderBoard />} />
         <Route path="/copy-trading/copier-dashboard" element={<CopierDashboard />} />
         <Route path="/copy-trading/leaders-hub/dashboard" element={<LeaderHubDashboard />} />
+        <Route path="/copy-trading/trader/70f365e2-3b5c-4de5-a9f5-d0d7b5ad925f" element={<IngridMartingaleCard />} />
+        <Route path="/copy-trading/trader/41614b29-26b3-4b3c-980d-0cefc8712511" element={<NatyProfileCard />} />
+        <Route path="/copy-trading/trader/e1db2d30-37d9-4ac8-bbf8-db25e36b1fbd" element={<StratosProfile />} />
+        <Route path="/copy-trading/trader/a8c7d67b-d5f9-436f-aacc-167fbbcf8217" element={<ScalpingCard />} />
         <Route path="/nomo-gpt" element={<NomoGPTLayout />} />
       </Routes>
       <Footer />

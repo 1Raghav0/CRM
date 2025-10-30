@@ -1,6 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+
+  const navigate = useNavigate();
+
+  const gotoTrade = () => {
+    navigate("/trading/marketing");
+  };
+
+  const gotoLeaderboard = () => {
+    navigate("/copy-trading/leaderboard");
+  };
+  const gotoPortfolio = () => {
+    navigate("/portfolio/open");
+  };
+
   return (
     <div className="container mx-auto p-4">
       {/* Dashboard Header Section */}
@@ -54,7 +69,7 @@ const Dashboard = () => {
       {/* Portfolio Details Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
         {/* Portfolio Value */}
-        <div className="bg-white shadow-lg rounded-lg p-6 flex justify-between items-center">
+        <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col lg:flex-row justify-between lg:items-center">
           <div>
             <h4 className="text-xl font-semibold mb-2 text-gray-800">
               My portfolio value
@@ -66,13 +81,13 @@ const Dashboard = () => {
             className="bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md 
                hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg 
                active:scale-95 transition-all duration-200 ease-in-out"
-          >
+          onClick={gotoPortfolio}>
             Go to portfolio
           </button>
         </div>
 
         {/* Total Copied Trades */}
-        <div className="bg-white shadow-lg rounded-lg p-6 flex justify-between items-center">
+        <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col lg:flex-row justify-between lg:items-center">
           <div>
             <h4 className="text-xl font-semibold mb-2">Total copied trades</h4>
             <p className="text-4xl font-bold text-gray-800 mb-4">0</p>
@@ -114,7 +129,8 @@ const Dashboard = () => {
             </p>
 
             {/* Button */}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-md transition">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-md transition"
+            onClick={gotoTrade}>
               Trade now
             </button>
           </div>
@@ -142,7 +158,8 @@ const Dashboard = () => {
             </p>
 
             {/* Button */}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-md transition">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-md transition"
+            onClick={gotoLeaderboard}>
               Go to Leaderboard
             </button>
           </div>

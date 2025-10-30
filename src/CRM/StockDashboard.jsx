@@ -73,7 +73,7 @@ const StockDashboard = () => {
         </div>
       </div>
     </div>
-    <InterestedSection />
+    {/* <InterestedSection /> */}
     </>
     
   );

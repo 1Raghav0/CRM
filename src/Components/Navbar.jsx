@@ -1,81 +1,3 @@
-// import React, { useState } from "react";
-// import { FiSearch, FiPlus, FiMenu, FiX } from "react-icons/fi";
-
-// const Navbar = () => {
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   return (
-//     <nav className="w-full bg-white shadow-sm px-4 md:px-8 py-3 flex items-center justify-between">
-//       {/* Left section */}
-//       <div className="flex items-center space-x-8">
-//         {/* Logo */}
-//         <div className="flex items-center space-x-1">
-//           <span className="font-semibold text-gray-800 text-lg">n<span className="text-blue-500">m</span> nomo</span>
-//         </div>
-
-//         {/* Desktop menu */}
-//         <ul className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
-//           <li className="hover:text-blue-600 cursor-pointer">Trading ▾</li>
-//           <li className="hover:text-blue-600 cursor-pointer">Copy-trading ▾</li>
-//           <li className="hover:text-blue-600 cursor-pointer">Portfolio</li>
-//           <li className="hover:text-blue-600 cursor-pointer">More ▾</li>
-//         </ul>
-//       </div>
-
-//       {/* Right section */}
-//       <div className="flex items-center space-x-3">
-//         {/* Search Icon */}
-//         <button className="p-2 rounded-full hover:bg-gray-100">
-//           <FiSearch className="text-gray-600 w-5 h-5" />
-//         </button>
-
-//         {/* Deposit bonus button */}
-//         <button className="hidden sm:flex items-center space-x-1 bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200">
-//           <span>💰</span>
-//           <span>Deposit bonus</span>
-//         </button>
-
-//         {/* Wallet icon (placeholder) */}
-//         <button className="p-2 rounded-full border border-gray-200 hover:bg-gray-100">
-//           <img
-//             src="https://dummyimage.com/20x20/000/fff&text=$"
-//             alt="Wallet"
-//             className="h-4"
-//           />
-//         </button>
-
-//         {/* Add button */}
-//         <button className="p-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white">
-//           <FiPlus className="w-5 h-5" />
-//         </button>
-
-//         {/* Mobile menu toggle */}
-//         <button
-//           className="md:hidden p-2 ml-2 rounded-full hover:bg-gray-100"
-//           onClick={() => setMenuOpen(!menuOpen)}
-//         >
-//           {menuOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
-//         </button>
-//       </div>
-
-//       {/* Mobile dropdown */}
-//       {menuOpen && (
-//         <div className="absolute top-14 left-0 w-full bg-white shadow-md md:hidden">
-//           <ul className="flex flex-col text-gray-700 text-sm py-2">
-//             <li className="px-4 py-2 hover:bg-gray-50">Trading</li>
-//             <li className="px-4 py-2 hover:bg-gray-50">Copy-trading</li>
-//             <li className="px-4 py-2 hover:bg-gray-50">Portfolio</li>
-//             <li className="px-4 py-2 hover:bg-gray-50">More</li>
-//           </ul>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiSearch, FiPlus, FiMenu, FiX } from "react-icons/fi";
@@ -83,7 +5,8 @@ import { FaWallet } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openMenu, setOpenMenu] = useState(null); // tracks which dropdown is open
+  const [openMenu, setOpenMenu] = useState(null); 
+  const [showPopup, setShowPopup] = useState(false);
 
   // Handle which dropdown is open
   const handleToggle = (menuName) => {
@@ -193,7 +116,7 @@ const Navbar = () => {
 
   {/* Portfolio */}
   <li>
-    <Link to="/page1" className="hover:text-blue-600">
+    <Link to="/portfolio/open" className="hover:text-blue-600">
       Portfolio
     </Link>
   </li>
@@ -234,9 +157,70 @@ const Navbar = () => {
       {/* Search + Bonus */}
       <div className="flex gap-4">
         {/* Search Button */}
-        <button className="p-4 rounded-lg bg-gray-100 hover:bg-gray-200">
+        {/* <button className="p-4 rounded-lg bg-gray-100 hover:bg-gray-200">
           <FiSearch className="w-5 h-5" />
-        </button>
+        </button> */}
+
+        <div className="relative">
+      {/* 🔍 Search Button */}
+      <button
+        className="p-4 rounded-lg bg-gray-100 hover:bg-gray-200"
+        onClick={() => setShowPopup(true)}
+      >
+        <FiSearch className="w-5 h-5" />
+      </button>
+
+      {/* 🌙 Popup Overlay */}
+      {showPopup && (
+        <div
+          className="fixed inset-0 backdrop-blur-xl flex items-center justify-center z-50"
+          onClick={() => setShowPopup(false)}
+        >
+          {/* 🧩 Popup Box */}
+          <div
+            className="relative bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+          >
+            
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-3 right-2 text-gray-500 hover:text-gray-800 transition"
+            >
+              <FiX className="w-5 h-5" />
+            </button>
+
+            {/* 🔍 Search Input */}
+            <div className="relative mb-6">
+              <input
+                type="text"
+                placeholder='Search by asset name or ticker, e.g. "Bitcoin" or "EUR/USD"'
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div className="absolute right-3 top-3 text-gray-400">
+                <FiSearch />
+              </div>
+            </div>
+
+            {/* 💰 Crypto Icons Preview */}
+            <div className="flex justify-center space-x-2 mb-3">
+              <div className="w-8 h-8 bg-orange-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
+              <div className="w-8 h-8 bg-yellow-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
+              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-white text-xs">
+                300+
+              </div>
+            </div>
+
+            {/* 🏷️ Text */}
+            <h2 className="text-lg font-semibold">Search for an asset</h2>
+            <p className="text-gray-500 text-sm">
+              Enter the asset name or ticker of the asset you're looking for
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
 
         {/* Deposit Bonus */}
         <button className="hidden sm:flex items-center space-x-1 bg-blue-50 px-3 py-1.5 rounded-xl text-sm font-medium hover:bg-blue-100 transition">
