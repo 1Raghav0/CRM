@@ -237,15 +237,19 @@ const Navbar = () => {
       {/* Right Section */}
       <div className="flex items-center space-x-3">
         {/* Wallet */}
-        <button className="flex items-center justify-center p-2 rounded-lg border border-gray-200 hover:bg-gray-100">
-          <FaWallet className="text-gray-700 w-5 h-5" />
-        </button>
+        <Link to="/money">
+  <button className="flex items-center justify-center p-2 rounded-lg border border-gray-200 hover:bg-gray-100">
+    <FaWallet className="text-gray-700 w-5 h-5" />
+  </button>
+</Link>
 
         {/* Add Button */}
+        <Link to="/money/deposit">
         <button className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-2">
           <FiPlus className="w-5 h-5" />
         </button>
-
+        </Link>
+        
         {/* Menu Toggle (Mobile) */}
         <button
           className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 lg:hidden cursor-pointer"

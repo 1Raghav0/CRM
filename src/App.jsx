@@ -17,6 +17,8 @@ import IngridMartingaleCard from "./CRM/IngridMartingaleCard";
 import NatyProfileCard from "./CRM/NatyProfileCard";
 import StratosProfile from "./CRM/StratosProfile";
 import ScalpingCard from "./CRM/ScalpingCard";
+import CryptoDetailPage from "./Pages/Marketing/CryptoDetailPage.jsx";
+import TrendingAssetsDetailPage from "./Pages/Marketing/TrendingAssetsDetailPage.jsx";
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
         <Route path="/money" element={<MoneyDashboard />} />
         <Route path="/portfolio/open" element={<Portfolio />} />
         <Route path="/trading/marketing" element={<Marketing />} />
+        <Route path="/crypto/:name" element={<CryptoDetailPage />} />
+        <Route path="/asset/:symbol" element={<TrendingAssetsDetailPage />} />
         <Route path="/trading/platforms" element={<Platforms />} />
         <Route path="/copy-trading/leaderboard" element={<LeaderBoard />} />
         <Route path="/copy-trading/copier-dashboard" element={<CopierDashboard />} />
