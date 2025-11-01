@@ -1,5 +1,5 @@
-// import React from "react";
-// import { Star } from "lucide-react"; // <-- Make sure lucide-react is installed
+// import { useNavigate } from "react-router-dom";
+// import { Star } from "lucide-react";
 
 // const stocksData = [
 //   { name: "Home Depot", symbol: "HD", price: "$389.14", change: "+0.28%", changeValue: "+$1.09" },
@@ -14,6 +14,12 @@
 // ];
 
 // const StocksTable = () => {
+//   const navigate = useNavigate();
+
+//   const handleNavigate = (stock) => {
+//     navigate(`/stocks/${encodeURIComponent(stock.name)}`, { state: stock });
+//   };
+
 //   return (
 //     <div className="overflow-x-auto mt-4 w-full">
 //       <table className="min-w-full border-collapse">
@@ -37,11 +43,16 @@
 //                 className="border-b hover:bg-gray-50 transition-colors duration-200 text-sm sm:text-base"
 //               >
 //                 {/* Name */}
-//                 <td className="px-4 py-3 whitespace-nowrap">
+//                 <td
+//                   className="px-4 py-3 whitespace-nowrap cursor-pointer"
+//                   onClick={() => handleNavigate(stock)}
+//                 >
 //                   <div className="flex items-center space-x-3">
 //                     <Star className="w-4 h-4 text-gray-400 cursor-pointer hover:text-yellow-400" />
 //                     <div>
-//                       <div className="font-medium text-gray-800">{stock.name}</div>
+//                       <div className="font-medium text-gray-800 hover:text-blue-600 transition">
+//                         {stock.name}
+//                       </div>
 //                       <div className="text-gray-500 text-xs">{stock.symbol}</div>
 //                     </div>
 //                   </div>
@@ -91,9 +102,6 @@
 // export default StocksTable;
 
 
-
-// 📁 src/components/StocksTable.jsx
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Star } from "lucide-react";
 
@@ -179,10 +187,22 @@ const StocksTable = () => {
 
                 {/* Actions */}
                 <td className="px-4 py-3 text-center whitespace-nowrap">
-                  <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2 transition">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/stocks/${encodeURIComponent(stock.name)}`, { state: stock });
+                    }}
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2 transition"
+                  >
                     Buy
                   </button>
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/stocks/${encodeURIComponent(stock.name)}`, { state: stock });
+                    }}
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition"
+                  >
                     Sell
                   </button>
                 </td>

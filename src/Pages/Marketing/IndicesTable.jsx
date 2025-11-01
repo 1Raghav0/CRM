@@ -1,4 +1,4 @@
-// import React from "react";
+// import { useNavigate } from "react-router-dom";
 // import { ArrowUpRight, ArrowDownRight, Star } from "lucide-react";
 
 // const indicesData = [
@@ -14,6 +14,12 @@
 // ];
 
 // const IndicesTable = () => {
+//   const navigate = useNavigate();
+
+//   const handleClick = (item) => {
+//     navigate(`/indices/${encodeURIComponent(item.name)}`, { state: item });
+//   };
+
 //   return (
 //     <div className="w-full bg-white dark:bg-gray-900 rounded-2xl shadow p-4 md:p-6 overflow-x-auto">
 //       <table className="w-full min-w-[700px] text-left">
@@ -33,10 +39,15 @@
 //               className="border-b last:border-none hover:bg-gray-50 dark:hover:bg-gray-800 transition"
 //             >
 //               {/* Name */}
-//               <td className="py-3 flex items-center gap-3">
+//               <td
+//                 className="py-3 flex items-center gap-3 cursor-pointer"
+//                 onClick={() => handleClick(item)}
+//               >
 //                 <Star size={18} className="text-gray-400" />
 //                 <div>
-//                   <p className="font-semibold text-gray-800 dark:text-gray-100">{item.name}</p>
+//                   <p className="font-semibold text-gray-800 dark:text-gray-100 hover:text-blue-600">
+//                     {item.name}
+//                   </p>
 //                   <p className="text-xs text-gray-500">
 //                     <span className="bg-blue-100 text-blue-700 text-[10px] px-1.5 py-0.5 rounded">
 //                       Indices
@@ -88,9 +99,6 @@
 // export default IndicesTable;
 
 
-
-// 📁 src/components/IndicesTable.jsx
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, ArrowDownRight, Star } from "lucide-react";
 
@@ -174,10 +182,22 @@ const IndicesTable = () => {
 
               {/* Action Buttons */}
               <td className="py-3 flex items-center justify-center gap-2">
-                <button className="bg-green-500 text-white px-4 py-1.5 rounded hover:bg-green-600 transition">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/indices/${encodeURIComponent(item.name)}`, { state: item });
+                  }}
+                  className="bg-green-500 text-white px-4 py-1.5 rounded hover:bg-green-600 transition"
+                >
                   Buy
                 </button>
-                <button className="bg-red-500 text-white px-4 py-1.5 rounded hover:bg-red-600 transition">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/indices/${encodeURIComponent(item.name)}`, { state: item });
+                  }}
+                  className="bg-red-500 text-white px-4 py-1.5 rounded hover:bg-red-600 transition"
+                >
                   Sell
                 </button>
               </td>
@@ -190,3 +210,4 @@ const IndicesTable = () => {
 };
 
 export default IndicesTable;
+

@@ -1,5 +1,5 @@
-// import React from "react";
-// import { Star } from "lucide-react"; // npm install lucide-react
+// import { useNavigate } from "react-router-dom";
+// import { Star } from "lucide-react";
 
 // const syntheticIndicesData = [
 //   { name: "POP-400", symbol: "POP-400", price: "$97,124.52", change: "+0.39%", chart: "📈" },
@@ -14,6 +14,12 @@
 // ];
 
 // const SyntheticIndicesTable = () => {
+//   const navigate = useNavigate();
+
+//   const handleNavigate = (item) => {
+//     navigate(`/synthetic/${encodeURIComponent(item.name)}`, { state: item });
+//   };
+
 //   return (
 //     <div className="overflow-x-auto mt-4">
 //       <table className="min-w-full table-auto text-sm sm:text-base">
@@ -35,23 +41,25 @@
 //                 key={index}
 //                 className="border-b hover:bg-gray-50 transition-colors duration-200"
 //               >
-//                 {/* Name + Star */}
-//                 <td className="px-4 py-2 whitespace-nowrap">
+//                 <td
+//                   className="px-4 py-2 whitespace-nowrap cursor-pointer"
+//                   onClick={() => handleNavigate(item)}
+//                 >
 //                   <div className="flex items-center gap-3">
-//                     <Star className="w-4 h-4 text-gray-400 cursor-pointer hover:text-yellow-400 transition" />
+//                     <Star className="w-4 h-4 text-gray-400 hover:text-yellow-400 transition" />
 //                     <div>
-//                       <p className="font-medium text-gray-800">{item.name}</p>
+//                       <p className="font-medium text-gray-800 hover:text-blue-600 transition">
+//                         {item.name}
+//                       </p>
 //                       <p className="text-gray-500 text-xs">{item.symbol}</p>
 //                     </div>
 //                   </div>
 //                 </td>
 
-//                 {/* Price */}
 //                 <td className="px-4 py-2 text-gray-800 font-medium whitespace-nowrap">
 //                   {item.price}
 //                 </td>
 
-//                 {/* 24h % */}
 //                 <td
 //                   className={`px-4 py-2 font-semibold ${
 //                     isPositive ? "text-green-500" : "text-red-500"
@@ -60,10 +68,8 @@
 //                   {item.change}
 //                 </td>
 
-//                 {/* 24h Chart */}
 //                 <td className="px-4 py-2 text-gray-600 text-lg">{item.chart}</td>
 
-//                 {/* Buttons */}
 //                 <td className="px-4 py-2 text-center whitespace-nowrap">
 //                   <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2 text-sm sm:text-base transition">
 //                     Buy
@@ -84,9 +90,6 @@
 // export default SyntheticIndicesTable;
 
 
-
-// 📁 src/components/SyntheticIndicesTable.jsx
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Star } from "lucide-react";
 
@@ -157,13 +160,31 @@ const SyntheticIndicesTable = () => {
                   {item.change}
                 </td>
 
-                <td className="px-4 py-2 text-gray-600 text-lg">{item.chart}</td>
+                <td className="px-4 py-3">
+                  <div
+                    className={`h-6 w-24 sm:w-32 rounded-full ${
+                      isPositive ? "bg-green-200" : "bg-red-200"
+                    }`}
+                  ></div>
+                </td>
 
                 <td className="px-4 py-2 text-center whitespace-nowrap">
-                  <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2 text-sm sm:text-base transition">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/synthetic/${encodeURIComponent(item.name)}`, { state: item });
+                    }}
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2 text-sm sm:text-base transition"
+                  >
                     Buy
                   </button>
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm sm:text-base transition">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/synthetic/${encodeURIComponent(item.name)}`, { state: item });
+                    }}
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm sm:text-base transition"
+                  >
                     Sell
                   </button>
                 </td>
