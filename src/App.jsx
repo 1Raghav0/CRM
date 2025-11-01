@@ -19,6 +19,13 @@ import StratosProfile from "./CRM/StratosProfile";
 import ScalpingCard from "./CRM/ScalpingCard";
 import CryptoDetailPage from "./Pages/Marketing/CryptoDetailPage.jsx";
 import TrendingAssetsDetailPage from "./Pages/Marketing/TrendingAssetsDetailPage.jsx";
+import StockDashboardDetailPage from "./CRM/StockDashboardDetailPage.jsx";
+import CommodityDetailPage from "./Pages/Marketing/CommodityDetailPage.jsx";
+import CryptoMarketTableDetailPage from "./Pages/Marketing/CryptoMarketTableDetailPage.jsx";
+import ForexMarketTableDetailPage from "./Pages/Marketing/ForexMarketTableDetailPage.jsx";
+import IndicesDataTableDetailPage from "./Pages/Marketing/IndicesDataTableDetailPage.jsx";
+import StocksTableDetailPage from "./Pages/Marketing/StocksTableDetailPage.jsx";
+import SyntheticIndicesDetailPage from "./Pages/Marketing/SyntheticIndicesDetailPage.jsx";
 
 const App = () => {
   return (
@@ -34,6 +41,13 @@ const App = () => {
         <Route path="/trading/marketing" element={<Marketing />} />
         <Route path="/crypto/:name" element={<CryptoDetailPage />} />
         <Route path="/asset/:symbol" element={<TrendingAssetsDetailPage />} />
+        <Route path="/stock/:symbol" element={<StockDashboardDetailPage />} />
+        <Route path="/commodity/:ticker" element={<CommodityDetailPage />} />
+        <Route path="/crypto/:symbol" element={<CryptoMarketTableDetailPage />} />
+        <Route path="/forex/:symbol" element={<ForexMarketTableDetailPage />} />
+        <Route path="/indices/:name" element={<IndicesDataTableDetailPage />} />
+        <Route path="/stocks/:name" element={<StocksTableDetailPage />} />
+        <Route path="/synthetic/:name" element={<SyntheticIndicesDetailPage />} />
         <Route path="/trading/platforms" element={<Platforms />} />
         <Route path="/copy-trading/leaderboard" element={<LeaderBoard />} />
         <Route path="/copy-trading/copier-dashboard" element={<CopierDashboard />} />

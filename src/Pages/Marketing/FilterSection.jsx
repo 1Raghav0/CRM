@@ -56,6 +56,7 @@ import ForexMarketTable from "./ForexMarketTable";
 import IndicesTable from "./IndicesTable";
 import StocksTable from "./StocksTable";
 import SyntheticIndicesTable from "./SyntheticIndicesTable";
+import NomoAi from "./NomoAi";
 
 const FilterSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("Trending");
@@ -66,6 +67,7 @@ const FilterSection = () => {
 
   const categories = [
     "Trending",
+    "nomo AI",
     "Commodities",
     "Crypto",
     "Forex",
@@ -97,6 +99,7 @@ const FilterSection = () => {
 
       {/* Conditionally Render the Content Based on Selected Category */}
       {selectedCategory === "Trending" && <StockDashboard />}
+      {selectedCategory === "nomo AI" && <NomoAi />}
       {selectedCategory === "Commodities" && <MarketTable />}
       {selectedCategory === "Crypto" && <CryptoMarketTable />}
       {selectedCategory === "Forex" && <ForexMarketTable />}
