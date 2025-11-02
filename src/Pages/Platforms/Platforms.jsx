@@ -1,6 +1,28 @@
-import React from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Platforms = () => {
+    const [isOpen, setIsOpen] = useState(false);
+      const [showPopup, setShowPopup] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+
+    const handleClick = () => {
+    if (subscribed) return; // prevent repeat clicks
+
+    // Show popup immediately
+    setShowPopup(true);
+
+    setTimeout(() => {
+      setShowPopup(false);
+      setSubscribed(true);
+    }, 3000);
+  };
+
+  const navigate = useNavigate();
+
+  const gotoTradeNow = () => {
+    navigate("/trading/marketing");
+  }
   return (
     <div className="bg-white py-12 px-6">
       <div className="max-w-6xl mx-auto text-center">
@@ -44,7 +66,8 @@ const Platforms = () => {
               </div>
             </div>
 
-            <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+            <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            onClick={gotoTradeNow}>
               Trade now
             </button>
           </div>
@@ -72,9 +95,89 @@ const Platforms = () => {
               </div>
             </div>
 
-            <button className="w-full bg-gray-300 text-gray-600 py-2 rounded-md cursor-not-allowed">
+            {/* <button className="w-full bg-gray-300 text-gray-600 py-2 rounded-md">
               View details
+            </button> */}
+            <div className="flex flex-col">
+      {/* Button to open modal */}
+      <button
+        className="w-full bg-gray-300 text-gray-600 py-2 rounded-md hover:bg-gray-400 transition "
+        onClick={() => setIsOpen(true)}
+      >
+        View details
+      </button>
+
+      {/* Popup Modal */}
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm z-50">
+          <div className="bg-white rounded-lg shadow-lg w-11/12 max-w-md mx-auto relative p-6 sm:p-8">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            >
+              ✕
             </button>
+
+            {/* Header Icon */}
+            <div className="flex justify-center mb-4">
+              <div className="bg-green-100 p-3 rounded-full relative">
+                <span className="text-green-600 text-2xl font-bold">5</span>
+                <span className="absolute top-0 right-0 bg-orange-400 text-white text-xs rounded-full px-1.5">
+                  6
+                </span>
+              </div>
+            </div>
+
+            {/* Title & Description */}
+            <h2 className="text-lg sm:text-xl font-semibold text-center mb-2">
+              Deposit to activate MT5
+            </h2>
+            <p className="text-gray-600 text-sm text-center mb-6">
+              Make a deposit to your account to receive the MetaTrader5
+              credentials
+            </p>
+
+            {/* Deposit Methods */}
+            <div className="bg-gray-100 p-3 rounded-md text-center text-gray-700 text-sm mb-4">
+              <span className="font-medium">7+ deposit methods</span>
+              <div className="flex justify-center gap-2 mt-2">
+                <div className="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                  ₿
+                </div>
+                <div className="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                  UPI
+                </div>
+              </div>
+            </div>
+
+            {/* Bonus Info */}
+            <div className="bg-blue-50 p-3 rounded-md text-center text-gray-700 text-sm mb-6">
+              Deposit today to get a{" "}
+              <span className="font-semibold text-blue-600">50% bonus</span>
+              <br />
+              <span className="text-gray-500 text-xs">
+                Participate in our limited promotion
+              </span>
+            </div>
+
+            {/* Deposit Now Button */}
+            <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            onClick={gotoTradeNow}>
+              Deposit now
+            </button>
+
+            {/* Close link */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="block mx-auto mt-4 text-gray-500 text-sm hover:underline"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
           </div>
 
           {/* ==== Bottom Left Small Card: Android ==== */}
@@ -115,9 +218,31 @@ const Platforms = () => {
             <p className="text-gray-600 text-sm mb-3">
               Subscribe for updates to be the first to get iOS nomo mobile app
             </p>
-            <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+            {/* <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
               Notify me
-            </button>
+            </button> */}
+
+            <div className="flex flex-col items-center justify-center">
+      {/* Notify Button */}
+      <button
+        onClick={handleClick}
+        disabled={subscribed}
+        className={`w-full  py-2 rounded-md transition duration-300 ${
+          subscribed
+            ? "bg-green-500 text-white cursor-default"
+            : "bg-blue-600 text-white hover:bg-blue-700"
+        }`}
+      >
+        {subscribed ? "Subscribed" : "Notify me"}
+      </button>
+
+      {/* Toast Popup */}
+      {showPopup && (
+        <div className="fixed bottom-6 right-6 bg-white border border-gray-200 shadow-lg rounded-md px-4 py-3 text-gray-800 animate-slide-in">
+          <p>✅ Thanks for the subscribe!</p>
+        </div>
+      )}
+    </div>
           </div>
         </div>
       </div>
