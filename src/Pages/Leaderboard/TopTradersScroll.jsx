@@ -1,231 +1,243 @@
-import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import TraderPopup from "./TradePopup";
 
-const profitTraders = [
-  {
-    name: "IngridMartingale",
-    profit: "$22534.52",
-    winRate: "100%",
-    copiers: 349,
-    tags: ["High-frequency", "Profit-generator"],
-    // flag: "🇲🇽",
-    avatar: "https://i.pravatar.cc/100?img=1",
-  },
-  {
-    name: "Naty",
-    profit: "$9897.09",
-    winRate: "90.68%",
-    copiers: 33,
-    tags: ["AI", "Automation"],
-    // flag: "🇳🇱",
-    avatar: "https://i.pravatar.cc/100?img=2",
-  },
-  {
-    name: "StratosGoldwind",
-    profit: "$5102.1",
-    winRate: "78.38%",
-    copiers: 67,
-    tags: ["Profit-generator"],
-    // flag: "🇪🇸",
-    avatar: "https://i.pravatar.cc/100?img=3",
-  },
-  {
-    name: "ScarlTrader",
-    profit: "$3959.47",
-    winRate: "76.2%",
-    copiers: 66,
-    tags: ["Veteran", "Day-trader"],
-    // flag: "🇲🇽",
-    avatar: "https://i.pravatar.cc/100?img=4",
-  },
-  {
-    name: "StratosGoldwind",
-    profit: "$5102.1",
-    winRate: "78.38%",
-    copiers: 67,
-    tags: ["Profit-generator"],
-    // flag: "🇪🇸",
-    avatar: "https://i.pravatar.cc/100?img=3",
-  },
-  {
-    name: "ScarlTrader",
-    profit: "$3959.47",
-    winRate: "76.2%",
-    copiers: 66,
-    tags: ["Veteran", "Day-trader"],
-    // flag: "🇲🇽",
-    avatar: "https://i.pravatar.cc/100?img=4",
-  },
-];
+const TopTradersScroll = () => {
+  const navigate = useNavigate();
+  const [selectedTrader, setSelectedTrader] = useState(null);
 
-const roiTraders = [
-  {
-    name: "PesoHunter",
-    profit: "167.5%",
-    winRate: "100%",
-    copiers: 39,
-    tags: ["ROI", "7D"],
-    flag: "🇨🇱",
-    avatar: "https://i.pravatar.cc/100?img=5",
-  },
-  {
-    name: "RajeshMehta",
-    profit: "160.26%",
-    winRate: "100%",
-    copiers: 9,
-    tags: ["ROI", "7D"],
-    flag: "🇮🇳",
-    avatar: "https://i.pravatar.cc/100?img=6",
-  },
-  {
-    name: "Lautaro-Diaz",
-    profit: "158.46%",
-    winRate: "100%",
-    copiers: 32,
-    tags: ["ROI", "7D", "Veteran"],
-    flag: "🇦🇷",
-    avatar: "https://i.pravatar.cc/100?img=7",
-  },
-  {
-    name: "MarcoTrader",
-    profit: "153.75%",
-    winRate: "100%",
-    copiers: 70,
-    tags: ["ROI", "7D"],
-    flag: "🇮🇹",
-    avatar: "https://i.pravatar.cc/100?img=8",
-  },
-  {
-    name: "Lautaro-Diaz",
-    profit: "158.46%",
-    winRate: "100%",
-    copiers: 32,
-    tags: ["ROI", "7D", "Veteran"],
-    flag: "🇦🇷",
-    avatar: "https://i.pravatar.cc/100?img=7",
-  },
-  {
-    name: "MarcoTrader",
-    profit: "153.75%",
-    winRate: "100%",
-    copiers: 70,
-    tags: ["ROI", "7D"],
-    flag: "🇮🇹",
-    avatar: "https://i.pravatar.cc/100?img=8",
-  },
-];
+  // ==== TRADER DATA ARRAYS ====
+  const profitTraders = [
+    {
+      name: "IngridMartingale",
+      profit: "$36347.97",
+      winRate: "95.74%",
+      copiers: 372,
+      tags: ["High-frequency", "Profit-generator"],
+      flag: "🇲🇽",
+      avatar: "https://i.pravatar.cc/100?img=1",
+    },
+    {
+      name: "Naty",
+      profit: "$9897.09",
+      winRate: "90.68%",
+      copiers: 33,
+      tags: ["AI", "Automation"],
+      flag: "🇳🇱",
+      avatar: "https://i.pravatar.cc/100?img=2",
+    },
+    {
+      name: "StratosGoldwind",
+      profit: "$5102.10",
+      winRate: "78.38%",
+      copiers: 67,
+      tags: ["Profit-generator"],
+      flag: "🇪🇸",
+      avatar: "https://i.pravatar.cc/100?img=3",
+    },
+    {
+      name: "ScarlTrader",
+      profit: "$3959.47",
+      winRate: "76.2%",
+      copiers: 66,
+      tags: ["Veteran", "Day-trader"],
+      flag: "🇲🇽",
+      avatar: "https://i.pravatar.cc/100?img=4",
+    },
+    {
+      name: "StratosGoldwind",
+      profit: "$5102.10",
+      winRate: "78.38%",
+      copiers: 67,
+      tags: ["Profit-generator"],
+      flag: "🇪🇸",
+      avatar: "https://i.pravatar.cc/100?img=3",
+    },
+    {
+      name: "ScarlTrader",
+      profit: "$3959.47",
+      winRate: "76.2%",
+      copiers: 66,
+      tags: ["Veteran", "Day-trader"],
+      flag: "🇲🇽",
+      avatar: "https://i.pravatar.cc/100?img=4",
+    },
+  ];
 
-const activeTraders = [
-  {
-    name: "PesoHunter",
-    profit: "167.5%",
-    winRate: "100%",
-    copiers: 39,
-    tags: ["ROI", "7D"],
-    // flag: "🇨🇱",
-    avatar: "https://i.pravatar.cc/100?img=5",
-  },
-  {
-    name: "RajeshMehta",
-    profit: "160.26%",
-    winRate: "100%",
-    copiers: 9,
-    tags: ["ROI", "7D"],
-    // flag: "🇮🇳",
-    avatar: "https://i.pravatar.cc/100?img=6",
-  },
-  {
-    name: "Lautaro-Diaz",
-    profit: "158.46%",
-    winRate: "100%",
-    copiers: 32,
-    tags: ["ROI", "7D", "Veteran"],
-    // flag: "🇦🇷",
-    avatar: "https://i.pravatar.cc/100?img=7",
-  },
-  {
-    name: "MarcoTrader",
-    profit: "153.75%",
-    winRate: "100%",
-    copiers: 70,
-    tags: ["ROI", "7D"],
-    // flag: "🇮🇹",
-    avatar: "https://i.pravatar.cc/100?img=8",
-  },
-  {
-    name: "Lautaro-Diaz",
-    profit: "158.46%",
-    winRate: "100%",
-    copiers: 32,
-    tags: ["ROI", "7D", "Veteran"],
-    // flag: "🇦🇷",
-    avatar: "https://i.pravatar.cc/100?img=7",
-  },
-  {
-    name: "MarcoTrader",
-    profit: "153.75%",
-    winRate: "100%",
-    copiers: 70,
-    tags: ["ROI", "7D"],
-    // flag: "🇮🇹",
-    avatar: "https://i.pravatar.cc/100?img=8",
-  },
-];
+  const roiTraders = [
+    {
+      name: "PesoHunter",
+      profit: "167.5%",
+      winRate: "100%",
+      copiers: 39,
+      tags: ["ROI", "7D"],
+      flag: "🇨🇱",
+      avatar: "https://i.pravatar.cc/100?img=5",
+    },
+    {
+      name: "RajeshMehta",
+      profit: "160.26%",
+      winRate: "100%",
+      copiers: 9,
+      tags: ["ROI", "7D"],
+      flag: "🇮🇳",
+      avatar: "https://i.pravatar.cc/100?img=6",
+    },
+    {
+      name: "Lautaro-Diaz",
+      profit: "158.46%",
+      winRate: "100%",
+      copiers: 32,
+      tags: ["ROI", "7D", "Veteran"],
+      flag: "🇦🇷",
+      avatar: "https://i.pravatar.cc/100?img=7",
+    },
+    {
+      name: "MarcoTrader",
+      profit: "153.75%",
+      winRate: "100%",
+      copiers: 70,
+      tags: ["ROI", "7D"],
+      flag: "🇮🇹",
+      avatar: "https://i.pravatar.cc/100?img=8",
+    },
+    {
+      name: "Lautaro-Diaz",
+      profit: "158.46%",
+      winRate: "100%",
+      copiers: 32,
+      tags: ["ROI", "7D", "Veteran"],
+      flag: "🇦🇷",
+      avatar: "https://i.pravatar.cc/100?img=7",
+    },
+    {
+      name: "MarcoTrader",
+      profit: "153.75%",
+      winRate: "100%",
+      copiers: 70,
+      tags: ["ROI", "7D"],
+      flag: "🇮🇹",
+      avatar: "https://i.pravatar.cc/100?img=8",
+    },
+  ];
 
-const Section = ({ title, subtitle, traders }) => (
-  <div className="mb-12 p-8">
-    {/* Header */}
-    <div className="flex justify-between items-center mb-4">
-      <div>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
-          {title}
-        </h2>
-        <p className="text-gray-500 text-sm md:text-base">{subtitle}</p>
-      </div>
-      <button className="text-blue-600 hover:underline text-sm font-medium">
-        View more →
-      </button>
-    </div>
+  const activeTraders = [
+    {
+      name: "PesoHunter",
+      profit: "167.5%",
+      winRate: "100%",
+      copiers: 39,
+      tags: ["Active", "7D"],
+      avatar: "https://i.pravatar.cc/100?img=5",
+    },
+    {
+      name: "RajeshMehta",
+      profit: "160.26%",
+      winRate: "100%",
+      copiers: 9,
+      tags: ["Active", "7D"],
+      avatar: "https://i.pravatar.cc/100?img=6",
+    },
+    {
+      name: "Lautaro-Diaz",
+      profit: "158.46%",
+      winRate: "100%",
+      copiers: 32,
+      tags: ["Active", "7D", "Veteran"],
+      avatar: "https://i.pravatar.cc/100?img=7",
+    },
+    {
+      name: "MarcoTrader",
+      profit: "153.75%",
+      winRate: "100%",
+      copiers: 70,
+      tags: ["Active", "7D"],
+      avatar: "https://i.pravatar.cc/100?img=8",
+    },
+    {
+      name: "Lautaro-Diaz",
+      profit: "158.46%",
+      winRate: "100%",
+      copiers: 32,
+      tags: ["Active", "7D", "Veteran"],
+      avatar: "https://i.pravatar.cc/100?img=7",
+    },
+    {
+      name: "MarcoTrader",
+      profit: "153.75%",
+      winRate: "100%",
+      copiers: 70,
+      tags: ["Active", "7D"],
+      avatar: "https://i.pravatar.cc/100?img=8",
+    },
+  ];
 
-    {/* Scrollable cards */}
-    <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-3">
+  // ==== UNIVERSAL SECTION RENDERER ====
+const renderSection = (title, traders) => (
+  <div className="mb-10">
+    <h2 className="text-xl font-semibold mb-4">{title}</h2>
+
+    <div className="flex gap-4 overflow-x-auto pb-2">
       {traders.map((t, i) => (
         <div
           key={i}
-          className="min-w-[270px] bg-white border border-gray-200 rounded-xl p-4 flex-shrink-0 hover:shadow-lg transition"
+          className="cursor-pointer min-w-[320px] bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition border border-gray-200"
+          onClick={() => navigate(`/trader/${t.name}`, { state: t })}
         >
-          {/* Header */}
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center gap-2">
+          {/* HEADER */}
+          <div className="flex justify-between items-center mb-4">
+            <div className="flex items-center gap-3">
               <img
                 src={t.avatar}
                 alt={t.name}
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-12 h-12 rounded-full object-cover"
               />
               <div>
                 <p className="font-semibold text-gray-800 flex items-center gap-1">
-                  {t.flag} {t.name}
+                  {t.flag && <span>{t.flag}</span>} {t.name}
                 </p>
                 <p className="text-xs text-gray-500">{t.copiers} copiers</p>
               </div>
             </div>
-            <button className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded">
+
+            {/* FIX: make Copy button open popup */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); // prevent any outer click
+                setSelectedTrader(t); // open popup
+              }}
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-1 rounded-lg"
+            >
               Copy
             </button>
           </div>
 
-          {/* Stats */}
-          <p className="text-green-600 font-bold text-lg">{t.profit}</p>
-          <div className="flex justify-between text-sm text-gray-600 mb-4">
-            <span>{t.winRate}</span>
-            <span>Win rate</span>
+          {/* PROFIT / WIN RATE */}
+          <div className="flex justify-between mb-3">
+            <div>
+              <p className="text-green-600 font-bold text-xl">{t.profit}</p>
+              <p className="text-xs text-gray-500">Copiers profit</p>
+            </div>
+            <div>
+              <p className="font-semibold text-gray-700 text-lg">
+                {t.winRate}
+              </p>
+              <p className="text-xs text-gray-500">Win rate</p>
+            </div>
           </div>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-4 mt-2">
+          {/* TAGS */}
+          <div className="flex flex-wrap gap-2 mt-3">
             {t.tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-md"
+                className={`text-xs font-medium px-2 py-1 rounded-md ${
+                  tag === "High-frequency"
+                    ? "bg-blue-100 text-blue-700"
+                    : tag === "Profit-generator"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-gray-100 text-gray-700"
+                }`}
               >
                 {tag}
               </span>
@@ -237,28 +249,20 @@ const Section = ({ title, subtitle, traders }) => (
   </div>
 );
 
-const TopTradersScroll = () => {
-  return (
-    <section className="w-full bg-white px-4 md:px-8 lg:px-16 py-10">
-      <div className=" mx-auto">
-        <Section
-          title="Top traders by profit for copiers"
-          subtitle="Traders who generated the highest profits for their copiers in the last 30 days"
-          traders={profitTraders}
-        />
 
-        <Section
-          title="Top traders by ROI"
-          subtitle="Traders who earned the highest return on investments in the last 7 days"
-          traders={roiTraders}
-        />
-        <Section
-          title="Most active Traders"
-          subtitle="Traders who opened the most trades in the last 7 days"
-          traders={activeTraders}
-        />
-      </div>
-    </section>
+  return (
+    <section className="p-6 bg-gray-50 min-h-screen">
+    {renderSection("Top Traders by Profit", profitTraders)}
+    {renderSection("Top Traders by ROI", roiTraders)}
+    {renderSection("Most Active Traders", activeTraders)}
+
+    {selectedTrader && (
+      <TraderPopup
+        trader={selectedTrader}
+        onClose={() => setSelectedTrader(null)}
+      />
+    )}
+  </section>
   );
 };
 

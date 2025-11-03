@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import TraderPopup from "./TradePopup";
 
 const Leaderboards = () => {
   const [filters, setFilters] = useState({
@@ -7,14 +9,13 @@ const Leaderboards = () => {
     badge: "None",
     hideUnavailable: false,
   });
+    const navigate = useNavigate();
+  const [selectedTrader, setSelectedTrader] = useState(null);
 
   const traders = [
     {
     id: 1,
     username: "IngridMartingale",
-    country: "🇲🇽",
-    level: "Diamond",
-    currentLevel: "Current level: Diamond",
     badges: ["High-frequency", "Profit-generator"],
     winRate: "100%",
     riskScore: 7,
@@ -1442,9 +1443,13 @@ const Leaderboards = () => {
             {traders.map((t) => (
               <tr key={t.id} className="border-b hover:bg-gray-50">
                 <td className="py-2 px-3">{t.id}</td>
-                <td className="py-2 px-3">
+                <td className="py-2 px-3 flex gap-2">
+                  <div className="w-8 h-8 flex  items-center justify-center rounded-full bg-blue-500 text-white font-bold">
+      {t.username.charAt(0).toUpperCase()}
+    </div>
                   <div className="flex flex-col">
-                    <span className="font-medium">{t.username} {t.country}</span>
+                    <span className="font-medium cursor-pointer"
+                    onClick={() => navigate(`/trader/${t.name}`, { state: t })}>{t.username} {t.country}</span>
                     <div className="flex flex-wrap gap-1 mt-1">
                       {t.level && (
                         <span className="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-md">{t.level}</span>
@@ -1466,14 +1471,26 @@ const Leaderboards = () => {
                 <td className="py-2 px-3">{t.trades}</td>
                 <td className="py-2 px-3">{t.copiers}</td>
                 <td className="py-2 px-3 text-center">
-                  <button className="bg-blue-600 text-white rounded-md px-4 py-1 hover:bg-blue-700">
-                    Copy
-                  </button>
+                  <button
+              onClick={(e) => {
+                e.stopPropagation(); // prevent any outer click
+                setSelectedTrader(t); // open popup
+              }}
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-1 rounded-lg"
+            >
+              Copy
+            </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {selectedTrader && (
+      <TraderPopup
+        trader={selectedTrader}
+        onClose={() => setSelectedTrader(null)}
+      />
+    )}
       </div>
     </div>
   );

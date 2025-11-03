@@ -1,4 +1,5 @@
 import { Line } from "react-chartjs-2";
+import { useNavigate } from "react-router-dom";
 import {
   Chart as ChartJS,
   LineElement,
@@ -13,6 +14,11 @@ import FAQSection from "./FAQSection";
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip);
 
 const NomoAiIndex = () => {
+  const navigate = useNavigate();
+
+  const gotoDeposit = () =>{
+    navigate("/money/deposit")
+  }
   // Mock chart data (replicates the smooth upward trend)
   const data = {
     labels: ["", "", "", "", "", "", "", "", "", ""],
@@ -175,7 +181,8 @@ const NomoAiIndex = () => {
             <span>Advanced setting</span>
           </div>
 
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mt-3">
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mt-3"
+          onClick={gotoDeposit}>
             + Deposit
           </button>
 

@@ -26,6 +26,7 @@ import ForexMarketTableDetailPage from "./Pages/Marketing/ForexMarketTableDetail
 import IndicesDataTableDetailPage from "./Pages/Marketing/IndicesDataTableDetailPage.jsx";
 import StocksTableDetailPage from "./Pages/Marketing/StocksTableDetailPage.jsx";
 import SyntheticIndicesDetailPage from "./Pages/Marketing/SyntheticIndicesDetailPage.jsx";
+import TraderDetailPage from "./Pages/Leaderboard/TraderDetailPage.jsx";
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
         <Route path="/synthetic/:name" element={<SyntheticIndicesDetailPage />} />
         <Route path="/trading/platforms" element={<Platforms />} />
         <Route path="/copy-trading/leaderboard" element={<LeaderBoard />} />
+        <Route path="/trader/:name" element={<TraderDetailPage />} />
         <Route path="/copy-trading/copier-dashboard" element={<CopierDashboard />} />
         <Route path="/copy-trading/leaders-hub/dashboard" element={<LeaderHubDashboard />} />
         <Route path="/copy-trading/trader/70f365e2-3b5c-4de5-a9f5-d0d7b5ad925f" element={<IngridMartingaleCard />} />

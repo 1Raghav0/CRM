@@ -1,18 +1,25 @@
-import React from "react";
+import { useNavigate } from "react-router-dom"; 
 
 const CopierDashboard = () => {
+  const navigate = useNavigate();
+
+  const gotoDiscoverTraders = () => {
+    navigate("/copy-trading/leaderboard");
+  };
+
   return (
     <>
     <div className="bg-gray-50 p-4 sm:p-6 lg:p-10">
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+      <div className="flex flex-col flex-wrap  gap-y-4 sm:flex-row sm:items-center sm:justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Copier dashboard</h1>
           <p className="text-gray-500 mt-1">
             See the overview of your copy-trading activities and manage the traders you copy
           </p>
         </div>
-        <button className="mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-md">
+        <button className="mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-md"
+        onClick={gotoDiscoverTraders}>
           Discover other traders
         </button>
       </div>
@@ -106,30 +113,58 @@ const CopierDashboard = () => {
           <p className="text-gray-500 mb-5 max-w-md">
             Start copying a leader to see the copy-trading statistics here
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-md">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-md"
+          onClick={gotoDiscoverTraders}>
             + Explore leaderboard
           </button>
         </div>
       </div>
 
       {/* Find leaders with AI Section */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3 mb-4 sm:mb-0">
-          <div className="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center text-lg">
-            ⚡
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900">Find leaders with AI</h3>
-            <p className="text-gray-500 text-sm">
-              Use nomo AI to match with the most suitable leaders
-            </p>
-          </div>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mt-6 px-4">
+      
+      {/* Card 1 - Become a lead trader */}
+      <div className="flex items-start gap-3 bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all w-full sm:w-1/2">
+        {/* Icon */}
+        <img src="/50-percent-bonus.webp" alt="" className="h-24 mr-4"/>
+
+        {/* Content */}
+        <div>
+          <h3 className="font-semibold text-gray-800 text-lg">
+            Become a lead trader
+          </h3>
+          <p className="text-gray-500 text-sm mb-3">
+            Join our lead trader program and earn commission from being copied
+          </p>
+          <button className="bg-blue-100 text-blue-600 font-medium px-4 py-1.5 rounded-md hover:bg-blue-200 transition">
+            Become a lead trader
+          </button>
+        </div>
+      </div>
+
+      {/* Card 2 - Find leaders with AI */}
+      <div className="flex items-start gap-3 bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all w-full sm:w-1/2">
+        {/* Icon */}
+        <div className="flex items-center justify-center bg-blue-50 text-blue-600 rounded-full h-24 w-24 text-4xl mr-4">
+          ⚡
         </div>
 
-        <button className="bg-blue-100 hover:bg-blue-200 text-blue-600 font-medium px-4 py-2 rounded-md w-full sm:w-auto">
-          Start now
-        </button>
+        {/* Content */}
+        <div>
+          <h3 className="font-semibold text-gray-800 text-lg">
+            Find leaders with AI
+          </h3>
+          <p className="text-gray-500 text-sm mb-3">
+            Use nomo AI to match with the most suitable leaders
+          </p>
+          <button
+            className="bg-blue-100 text-blue-600 font-medium px-4 py-1.5 rounded-md hover:bg-blue-200 transition"
+          >
+            Start now
+          </button>
+        </div>
       </div>
+    </div>
     </div>
     </>
     
