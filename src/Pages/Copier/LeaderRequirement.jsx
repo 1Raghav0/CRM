@@ -3,8 +3,22 @@ import { BsChevronRight } from "react-icons/bs";
 import { FaCoins } from "react-icons/fa";
 import { AiOutlineCheckCircle, AiOutlineFileText } from "react-icons/ai";
 import { IoIosTrendingUp } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const LeaderRequirement = () => {
+
+  const navigate = useNavigate();
+
+  const gotoDeposit = () => {
+    navigate("/money/deposit");
+  };
+  const gotoVerify = () => {
+    navigate("/profile");
+  };
+  const gotoTradeNow = () => {
+    navigate("/copy-trading/leaderboard");
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-lg">
@@ -29,19 +43,23 @@ const LeaderRequirement = () => {
         {/* Requirements List */}
         <div className="space-y-4">
           {/* Min Level */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap">
             <span className="font-medium text-gray-700 flex items-center">
               🏅 Min level
             </span>
             <div className="flex items-center">
-              <span className="text-gray-700">Starter</span>
-              <BsChevronRight className="mx-2 text-blue-500" />
-              <span className="font-medium text-blue-500">Bronze</span>
-              <button className="ml-4 text-sm text-white bg-blue-500 px-4 py-2 rounded-full flex items-center hover:bg-blue-600 transition">
+              <button className="ml-4 text-sm text-white bg-blue-500 px-4 py-2 rounded-full flex items-center hover:bg-blue-600 transition"
+              onClick={gotoDeposit}>
                 <FaCoins className="mr-2" /> + Deposit
               </button>
             </div>
           </div>
+          <div className="flex items-center">
+            <span className="text-gray-700">Starter</span>
+              <BsChevronRight className="mx-4 text-blue-500" />
+              <span className="font-medium text-blue-500">Bronze</span>
+          </div>
+          
           <p className="text-sm text-gray-600">
             Deposit{" "}
             <span className="font-semibold text-blue-500">$250.00</span> to
@@ -53,7 +71,8 @@ const LeaderRequirement = () => {
             <span className="font-medium text-gray-700 flex items-center">
               🔒 Min verification level
             </span>
-            <button className="text-sm text-white bg-blue-500 px-4 py-2 rounded-full flex items-center hover:bg-blue-600 transition">
+            <button className="text-sm text-white bg-blue-500 px-4 py-2 rounded-full flex items-center hover:bg-blue-600 transition"
+            onClick={gotoVerify}>
               <AiOutlineCheckCircle className="mr-2" /> Verify now
             </button>
           </div>
@@ -64,7 +83,8 @@ const LeaderRequirement = () => {
             <span className="font-medium text-gray-700 flex items-center">
               📈 Open 20 trades
             </span>
-            <button className="text-sm text-white bg-blue-500 px-4 py-2 rounded-full flex items-center hover:bg-blue-600 transition">
+            <button className="text-sm text-white bg-blue-500 px-4 py-2 rounded-full flex items-center hover:bg-blue-600 transition"
+            onClick={gotoTradeNow}>
               <IoIosTrendingUp className="mr-2" /> Trade now
             </button>
           </div>

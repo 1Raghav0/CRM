@@ -29,6 +29,9 @@ import SyntheticIndicesDetailPage from "./Pages/Marketing/SyntheticIndicesDetail
 import TraderDetailPage from "./Pages/Leaderboard/TraderDetailPage.jsx";
 import LeadTraderSection from "./Pages/Copier/LeadTraderSection.jsx";
 import LeaderRequirement from "./Pages/Copier/LeaderRequirement.jsx";
+import ProfileSection from "./Pages/Copier/ProfileSection.jsx";
+import IdentityVerificationComponent from "./Pages/Copier/IdentityVerificationComponent.jsx";
+import MyLevelComponent from "./Pages/Copier/MyLevelComponent.jsx";
 
 const App = () => {
   return (
@@ -58,11 +61,15 @@ const App = () => {
         <Route path="/copy-trading/leaders-hub/dashboard" element={<LeaderHubDashboard />} />
         <Route path="/copy-trading/leader-onboarding" element={<LeadTraderSection />} />
         <Route path="/copy-trading/leader-onboarding/start" element={<LeaderRequirement />} />
+        <Route path="/profile" element={<ProfileSection />} />
+        <Route path="/user-levels" element={<MyLevelComponent />} />
+        <Route path="/kyc/documents" element={<IdentityVerificationComponent />} />
         <Route path="/copy-trading/trader/70f365e2-3b5c-4de5-a9f5-d0d7b5ad925f" element={<IngridMartingaleCard />} />
         <Route path="/copy-trading/trader/41614b29-26b3-4b3c-980d-0cefc8712511" element={<NatyProfileCard />} />
         <Route path="/copy-trading/trader/e1db2d30-37d9-4ac8-bbf8-db25e36b1fbd" element={<StratosProfile />} />
         <Route path="/copy-trading/trader/a8c7d67b-d5f9-436f-aacc-167fbbcf8217" element={<ScalpingCard />} />
         <Route path="/nomo-gpt" element={<NomoGPTLayout />} />
+        <Route path="/copy-trading/leader-onboarding" element={<LeadTraderSection />} />
       </Routes>
       <Footer />
     </Router>
