@@ -27,6 +27,8 @@ import IndicesDataTableDetailPage from "./Pages/Marketing/IndicesDataTableDetail
 import StocksTableDetailPage from "./Pages/Marketing/StocksTableDetailPage.jsx";
 import SyntheticIndicesDetailPage from "./Pages/Marketing/SyntheticIndicesDetailPage.jsx";
 import TraderDetailPage from "./Pages/Leaderboard/TraderDetailPage.jsx";
+import LeadTraderSection from "./Pages/Copier/LeadTraderSection.jsx";
+import LeaderRequirement from "./Pages/Copier/LeaderRequirement.jsx";
 
 const App = () => {
   return (
@@ -54,6 +56,8 @@ const App = () => {
         <Route path="/trader/:name" element={<TraderDetailPage />} />
         <Route path="/copy-trading/copier-dashboard" element={<CopierDashboard />} />
         <Route path="/copy-trading/leaders-hub/dashboard" element={<LeaderHubDashboard />} />
+        <Route path="/copy-trading/leader-onboarding" element={<LeadTraderSection />} />
+        <Route path="/copy-trading/leader-onboarding/start" element={<LeaderRequirement />} />
         <Route path="/copy-trading/trader/70f365e2-3b5c-4de5-a9f5-d0d7b5ad925f" element={<IngridMartingaleCard />} />
         <Route path="/copy-trading/trader/41614b29-26b3-4b3c-980d-0cefc8712511" element={<NatyProfileCard />} />
         <Route path="/copy-trading/trader/e1db2d30-37d9-4ac8-bbf8-db25e36b1fbd" element={<StratosProfile />} />

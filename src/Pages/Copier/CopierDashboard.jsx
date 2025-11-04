@@ -7,6 +7,10 @@ const CopierDashboard = () => {
     navigate("/copy-trading/leaderboard");
   };
 
+  const gotoBecomeLeadTrader = () => {
+    navigate("/copy-trading/leader-onboarding");
+  }
+
   return (
     <>
     <div className="bg-gray-50 p-4 sm:p-6 lg:p-10">
@@ -136,7 +140,8 @@ const CopierDashboard = () => {
           <p className="text-gray-500 text-sm mb-3">
             Join our lead trader program and earn commission from being copied
           </p>
-          <button className="bg-blue-100 text-blue-600 font-medium px-4 py-1.5 rounded-md hover:bg-blue-200 transition">
+          <button className="bg-blue-100 text-blue-600 font-medium px-4 py-1.5 rounded-md hover:bg-blue-200 transition"
+          onClick={gotoBecomeLeadTrader}>
             Become a lead trader
           </button>
         </div>
