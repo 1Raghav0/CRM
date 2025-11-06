@@ -97,7 +97,7 @@ const Dashboard = () => {
             className="bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md 
                hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg 
                active:scale-95 transition-all duration-200 ease-in-out"
-          >
+          onClick={gotoPortfolio}>
             Go to portfolio
           </button>
         </div>

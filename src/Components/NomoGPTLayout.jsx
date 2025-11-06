@@ -1,6 +1,11 @@
+// import { nav } from "framer-motion/client";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NomoGPTLayout = () => {
+
+  const navigate = useNavigate();
+  const gotoStarter = () => navigate("/user-levels");
   return (
     <div className="min-h-screen bg-[#e4eaf9] p-4 md:p-8 flex flex-col space-y-6">
       {/* Top bar */}
@@ -110,7 +115,10 @@ const NomoGPTLayout = () => {
                   m
                 </text>
               </svg>
-              <span>Starter</span>
+              <button onClick={gotoStarter}>
+                <span>Starter</span>
+              </button>
+              
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

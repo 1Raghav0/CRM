@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroSection from './HeroSection'
 import Dashboard from './Dashboard'
-import TopTraders from './TopTraders'
+import TopTraders from './TopTradersScroll'
 import StockDashboard from './StockDashboard'
 
 const Home = () => {

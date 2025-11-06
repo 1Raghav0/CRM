@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TransactionHistory = () => {
   const [activeTab, setActiveTab] = useState("All");
+
+  const navigate = useNavigate();
+
+  const gotoDeposit = () => navigate('/money/deposit');
 
   // Example data (can be fetched dynamically)
   const transactions = {
@@ -25,7 +30,7 @@ const TransactionHistory = () => {
           <p className="text-sm text-gray-500 mb-4">
             All your deposits and withdrawals will be displayed here
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium" onClick={gotoDeposit}>
             + Make a deposit
           </button>
         </div>

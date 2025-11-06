@@ -29,11 +29,16 @@ const TradePopup = ({ trader, onClose }) => {
 
         {/* HEADER */}
         <div className="flex items-center gap-3 mb-5">
-          <img
+          {/* <img
             src={trader.avatar}
             alt={trader.name}
             className="w-12 h-12 rounded-full object-cover"
-          />
+          /> */}
+          <div
+  className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-lg"
+>
+  {trader.name.charAt(0).toUpperCase()}
+</div>
           <div>
             <h3 className="font-semibold text-lg flex items-center gap-1">
               {trader.flag && <span>{trader.flag}</span>} {trader.name}

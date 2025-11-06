@@ -5,8 +5,8 @@ import { FiDownload, FiSettings, FiCheck } from "react-icons/fi";
 const BonusSteps = () => {
   const navigate = useNavigate();
 
-  const handleDepositClick = () => navigate("/deposit");
-  const handleTradeClick = () => navigate("/trade");
+  const handleDepositClick = () => navigate("/money/deposit");
+  const handleTradeClick = () => navigate("/trading/marketing");
   const handleTermsClick = () => navigate("/bonus-terms");
 
   return (

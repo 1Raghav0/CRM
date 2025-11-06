@@ -32,15 +32,19 @@ import LeaderRequirement from "./Pages/Copier/LeaderRequirement.jsx";
 import ProfileSection from "./Pages/Copier/ProfileSection.jsx";
 import IdentityVerificationComponent from "./Pages/Copier/IdentityVerificationComponent.jsx";
 import MyLevelComponent from "./Pages/Copier/MyLevelComponent.jsx";
+import ScrollToTop from "./ScrollToTop.jsx";
+import WithdrawalMethods from "./Components/WithdrawlMethods.jsx";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/copy-trading/nomo-ai-index" element={<NomoAiIndex />} />
         <Route path="/money/deposit" element={<DepositMethods />} />
+        <Route path="/money/withdrawal" element={<WithdrawalMethods />} />
         <Route path="/money/50-deposit-bonus" element={<DepositBonus />} />
         <Route path="/money" element={<MoneyDashboard />} />
         <Route path="/portfolio/open" element={<Portfolio />} />

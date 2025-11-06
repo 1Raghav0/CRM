@@ -7,12 +7,10 @@ const DepositBonus = () => {
   const navigate = useNavigate();
 
   const handleDepositClick = () => {
-    navigate("/deposit"); // Redirect to deposit page
+    navigate("/money/deposit"); // Redirect to deposit page
   };
 
-  const handleLearnMoreClick = () => {
-    navigate("/learn-more"); // Redirect to learn more page
-  };
+
 
   return (
     <>
@@ -46,7 +44,6 @@ const DepositBonus = () => {
               + Deposit
             </button>
             <button
-              onClick={handleLearnMoreClick}
               className="bg-blue-50 hover:bg-blue-100 text-blue-600 px-5 py-2 rounded-lg font-medium text-sm"
             >
               Learn more

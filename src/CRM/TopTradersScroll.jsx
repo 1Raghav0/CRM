@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import TraderPopup from "./TradePopup";
+import TraderPopup from "../Pages/Leaderboard/TradePopup";
 
 const TopTradersScroll = () => {
   const navigate = useNavigate();
@@ -61,114 +61,6 @@ const TopTradersScroll = () => {
       tags: ["Veteran", "Day-trader"],
       flag: "🇲🇽",
       avatar: "https://i.pravatar.cc/100?img=4",
-    },
-  ];
-
-  const roiTraders = [
-    {
-      name: "PesoHunter",
-      profit: "167.5%",
-      winRate: "100%",
-      copiers: 39,
-      tags: ["ROI", "7D"],
-      flag: "🇨🇱",
-      avatar: "https://i.pravatar.cc/100?img=5",
-    },
-    {
-      name: "RajeshMehta",
-      profit: "160.26%",
-      winRate: "100%",
-      copiers: 9,
-      tags: ["ROI", "7D"],
-      flag: "🇮🇳",
-      avatar: "https://i.pravatar.cc/100?img=6",
-    },
-    {
-      name: "Lautaro-Diaz",
-      profit: "158.46%",
-      winRate: "100%",
-      copiers: 32,
-      tags: ["ROI", "7D", "Veteran"],
-      flag: "🇦🇷",
-      avatar: "https://i.pravatar.cc/100?img=7",
-    },
-    {
-      name: "MarcoTrader",
-      profit: "153.75%",
-      winRate: "100%",
-      copiers: 70,
-      tags: ["ROI", "7D"],
-      flag: "🇮🇹",
-      avatar: "https://i.pravatar.cc/100?img=8",
-    },
-    {
-      name: "Lautaro-Diaz",
-      profit: "158.46%",
-      winRate: "100%",
-      copiers: 32,
-      tags: ["ROI", "7D", "Veteran"],
-      flag: "🇦🇷",
-      avatar: "https://i.pravatar.cc/100?img=7",
-    },
-    {
-      name: "MarcoTrader",
-      profit: "153.75%",
-      winRate: "100%",
-      copiers: 70,
-      tags: ["ROI", "7D"],
-      flag: "🇮🇹",
-      avatar: "https://i.pravatar.cc/100?img=8",
-    },
-  ];
-
-  const activeTraders = [
-    {
-      name: "PesoHunter",
-      profit: "167.5%",
-      winRate: "100%",
-      copiers: 39,
-      tags: ["Active", "7D"],
-      avatar: "https://i.pravatar.cc/100?img=5",
-    },
-    {
-      name: "RajeshMehta",
-      profit: "160.26%",
-      winRate: "100%",
-      copiers: 9,
-      tags: ["Active", "7D"],
-      avatar: "https://i.pravatar.cc/100?img=6",
-    },
-    {
-      name: "Lautaro-Diaz",
-      profit: "158.46%",
-      winRate: "100%",
-      copiers: 32,
-      tags: ["Active", "7D", "Veteran"],
-      avatar: "https://i.pravatar.cc/100?img=7",
-    },
-    {
-      name: "MarcoTrader",
-      profit: "153.75%",
-      winRate: "100%",
-      copiers: 70,
-      tags: ["Active", "7D"],
-      avatar: "https://i.pravatar.cc/100?img=8",
-    },
-    {
-      name: "Lautaro-Diaz",
-      profit: "158.46%",
-      winRate: "100%",
-      copiers: 32,
-      tags: ["Active", "7D", "Veteran"],
-      avatar: "https://i.pravatar.cc/100?img=7",
-    },
-    {
-      name: "MarcoTrader",
-      profit: "153.75%",
-      winRate: "100%",
-      copiers: 70,
-      tags: ["Active", "7D"],
-      avatar: "https://i.pravatar.cc/100?img=8",
     },
   ];
 
@@ -251,10 +143,10 @@ const renderSection = (title, traders) => (
 
 
   return (
-    <section className="p-6 bg-gray-50 min-h-screen">
+    <section className="p-6 bg-gray-50">
     {renderSection("Top Traders by Profit", profitTraders)}
-    {renderSection("Top Traders by ROI", roiTraders)}
-    {renderSection("Most Active Traders", activeTraders)}
+    {/* {renderSection("Top Traders by ROI", roiTraders)}
+    {renderSection("Most Active Traders", activeTraders)} */}
 
     {selectedTrader && (
       <TraderPopup
