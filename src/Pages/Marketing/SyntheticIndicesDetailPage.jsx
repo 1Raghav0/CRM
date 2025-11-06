@@ -236,7 +236,7 @@ const SyntheticIndicesDetailPage = () => {
       </div>
     </div>
 
-        <div className="max-w-7xl mx-auto my-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:max-w-6xl mx-auto my-10 px-4 md:px-12 lg:px-24 ">
           {/* About Section */}
           <div className="lg:col-span-2 bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-2">
@@ -290,50 +290,6 @@ const SyntheticIndicesDetailPage = () => {
               ))}
             </div>
           </div>
-
-          {/* Related Assets */}
-          {/* Related Assets */}
-<div className="bg-white rounded-xl shadow-sm p-6">
-  <h3 className="text-lg font-semibold text-gray-800 mb-4">
-    Related assets
-  </h3>
-
-  <div className="grid grid-cols-1 gap-4">
-    {[
-      { ticker: "XPDUSD", name: "Palladium / US Dollar (spot)", change: "-1.92%" },
-      { ticker: "XCUUSD", name: "Copper / US Dollar (spot)", change: "0.09%" },
-      { ticker: "NGCUSD", name: "Natural gas", change: "1.54%" },
-      { ticker: "BRNUSD", name: "Brent Crude Oil", change: "0.96%" },
-      { ticker: "XAGUSD", name: "Silver / US Dollar (spot)", change: "-1.15%" },
-      { ticker: "WTIUSD", name: "US Crude Oil", change: "1.03%" },
-    ].map((asset, i) => (
-      <div
-        key={i}
-        className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg p-3 hover:bg-gray-100 transition shadow-sm"
-      >
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center font-semibold text-blue-600">
-            {asset.ticker.slice(0, 1)}
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-gray-800">
-              {asset.name}
-            </span>
-            <span className="text-xs text-gray-500">{asset.ticker}</span>
-          </div>
-        </div>
-        <span
-          className={`text-sm font-semibold ${
-            asset.change.startsWith("-") ? "text-red-500" : "text-green-500"
-          }`}
-        >
-          {asset.change}
-        </span>
-      </div>
-    ))}
-  </div>
-</div>
-
         </div>
     </>
     
@@ -341,3 +297,5 @@ const SyntheticIndicesDetailPage = () => {
 };
 
 export default SyntheticIndicesDetailPage;
+
+

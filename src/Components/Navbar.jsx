@@ -509,7 +509,7 @@ const Navbar = () => {
                     <ChevronDown className={arrowClass(isOpen)} size={16} />
                 </div>
                 {isOpen && (
-                    <div className="absolute top-full left-0 mt-3 w-56 bg-white shadow-xl ring-1 ring-black/5 rounded-xl p-2 z-50 animate-fade-in">
+                    <div className="absolute top-[8px] left-0 mt-3 w-56 bg-white shadow-xl ring-1 ring-black/5 rounded-xl p-2 z-50 animate-fade-in">
                         {children}
                     </div>
                 )}
